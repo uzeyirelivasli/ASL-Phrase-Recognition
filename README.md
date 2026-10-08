@@ -3,7 +3,7 @@
 Real-time recognition of a small set of American Sign Language (ASL) phrases from a webcam.
 The model works on **hand and upper-body landmarks** instead of raw video, so it is lightweight and runs on a normal laptop.
 
-> **Demo video:** _add link or drag the video file here_
+[> **Demo video:** _add link or drag the video file here_](https://github.com/user-attachments/assets/17edf366-8f81-4f54-b6c1-56df0b599362)
 
 ## Recognized phrases
 
