@@ -68,3 +68,21 @@ def draw_reference(frame, results):
     lm = results.pose_landmarks.landmark
     for i in REF_POINTS:
         cv2.circle(frame, (int(lm[i].x * w), int(lm[i].y * h)), 6, (0, 255, 255), -1)
+
+
+def normalize_frame(v):
+    """Bir kadrın vektorunu (135) normallaşdırır."""
+    nose, ls, rs = v[0:3], v[3:6], v[6:9]
+    scale = np.linalg.norm(ls[:2] - rs[:2])
+    if scale < 1e-6:           # bədən tapılmayıb
+        return np.zeros_like(v)
+    pts = v.reshape(-1, 3).copy()          # 45 nöqtə x 3
+    visible = np.any(pts != 0, axis=1)
+    pts = (pts - nose) / scale
+    pts[~visible] = 0
+    return pts.flatten()
+
+
+def normalize_sequence(seq):
+    """(60, 135) ardıcıllığının hər kadrını normallaşdırır."""
+    return np.array([normalize_frame(f) for f in seq])

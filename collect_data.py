@@ -26,6 +26,8 @@ SENTENCES = {
     "3": ("nice_to_meet_you", "Nice to meet you"),
     "4": ("thank_you", "Thank you"),
     "5": ("have_a_good_day", "Have a good day"),
+    "6": ("nothing", "Nothing (random movement)"),
+
 }
 
 DATA_DIR = "data"      # data/how_are_you/0.npy, 1.npy ...
